@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>My PDO Project</title>
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/style.css">
+
+    </head>
+    <body class="bodybackground">
+    {% if is_logged %} 
+        
+        {{ app.session.get('id')}}
+    <header>
+        <p class="entete_page_bein";>
+           <div class="premiere_ligne"> 
+             <a  href="#"><img class="imageentete" src="/img/icone1.png" alt="logoZS" title="M.BricoDeco"/></a>
+              <a href="https://www.neobux.com/?r=naraouf"><img src="https://www.neobux.com/imagens/banner9.gif" width="468" height="60"></a>
+              <a class="expressionentete"><img src="expressionentete.png" alt=""/></a>
+           </div>
+
+           <div class="deuxieme_ligne">
+            <nav class="navbarse colapse" id="menunav">
+                <ul class="liste_menu">
+                  <li class="icone_barre"><a href="{{path_for('login', { 'id': id}) }}"> Page principale </a></li>
+                  <li class="icone_barre"><a href="{{path_for('liste', { 'id': id}) }}"> Liste des blogs </a></li>
+                  <li class="icone_barre"><a href="{{path_for('updateprofil', { 'id': id}) }}"> Mon profil . </a></li>
+                  <li class="icone_barre"><a href="{{path_for('deconnexion', { 'id': id}) }}"> Deconnexion </a></li>
+                  <li class="icone_barre"><a href="#" target="_blank"> .... </a></li>
+            </ul></nav>
+            <div id="searchbar">
+              <span class="text">Que desirez vous chercher ?</span>
+              <form action="/search" method="POST">
+                <input class="champ" type="text" name="nameblog" placeholder="Search" required/>
+                <input class="bouton" type="submit" value="Ok"/>
+              </form>
+            </div>
+          </div>
+              
+                                             
+      <!-- Placez ici le contenu de l'en-tête de votre page -->
+
+      </header>
+        <h1 class="card text-white bg-dark mb-3">My Pdo Project Update</h1>
+        {# <p>{{variable}}</p>
+        <p>{{succes}}</p> #}
+
+        
+        <section>
+    <div class="new_article">
+        <form class="in_article" action="{{path_for('update', { 'id': pers.id}) }}" method="POST">
+            <input name="titre" type="text" placeholder="titre de l'article" value="{{ pers.titre }}" required>
+            <textarea name="message" id="" cols="30" rows="10" placeholder="contenu de l'article" maxlength="3000" minlength="50"required>{{ pers.message }}</textarea>       
+            <input type="submit" value="Poster">    
+        </form>
+        
+        </div>
+                   
+        <div id="arti" >
+    
+    
+    
+    </section>
+
+
+
+        <table class="table table-striped">        
+        {% for a in all %}
+           <tr>
+               <td scope="col"> {{a.name}} </td>
+               <td scope="col"> {{a.birthdate.format('Y-m-d H:i:s')}} </td>
+               <td scope="col"> {{a.gender}} </td>
+               
+           {% endfor %}
+           </table>
+
+           <p>      
+                {% else %} 
+                    Veuillez vous reconnecter !
+                    
+                {% endif %}
+        </p>
+
+    </body>
+</html>

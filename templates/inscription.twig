@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Slim 3</title>
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="bodybackground">
+    <header>
+        <H1 class="card text-white bd-dark mb-3">              <a  href="#"><img class="imageentete" src="/img/icone1.png" alt="logoZS" title="M.BricoDeco"/></a>
+Inscription</H1>     
+        <h3><a class="a" href="/">Revenir à la page d'accueil</a></h3>
+        
+    </header>
+
+    <section>
+    <form id="inscriptionform"action="/insc" method="POST">
+    <label class="lab">Votre nom</label>
+        <input class="form-control" type="text" name="name" id="" placeholder="name" maxlength="10" required >
+    <label class="lab">Votre date de naissance</label>
+        <input class="form-control" type="date" name="birthdate" id="" placeholder="birthdate" required>
+    <label class="lab">Votre email</label>
+        <input class="form-control" type="email" name="email" id="" placeholder="email" required>
+    <!-- <label class="lab">Votre password</label> -->
+        <!-- <input class="form-control" type="password" name="password" id="" placeholder="password" required> -->
+    <label class="lab">Le nom de votre blog</label>
+        <input class="form-control" type="text" name="nameblog" id="" placeholder="nom blog"maxlength="50" required>
+    <label class="lab">La description de votre blog</label>
+        <input class="form-control" type="text" name="resumeblog" id="" placeholder="description blog" required>
+            
+    <input type="submit" class="btn btn-primary" value="submit">
+        </form>
+
+        <section>
+    
+
+        
+       
+    </body>
+</html>
